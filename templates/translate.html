@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <h2>Translation Form</h2>
+
+    <form action="/" method="post">
+      <label for="text_to_translate">Text to translate:</label><br />
+      <input
+        type="text"
+        id="text_to_translate"
+        name="text_to_translate"
+      /><br />
+      <label for="lang_to">Translate to:</label><br />
+      <select id="lang_to" name="lang_to">
+        <option value="en">English</option>
+        <option value="es">Spanish</option>
+        <option value="de">German</option>
+        <!-- Add other languages as needed --></select
+      ><br />
+      <input type="submit" value="Translate" />
+    </form>
+
+    <p>Translation: {{ translation }}</p>
+  </body>
+</html>
