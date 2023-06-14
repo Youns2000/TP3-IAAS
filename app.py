@@ -4,9 +4,11 @@ from authlib.integrations.flask_client import OAuth
 import requests
 import json
 import uuid
+from werkzeug.middleware.proxy_fix import ProxyFix
 
 
 app = Flask(__name__, static_folder='static/build', static_url_path='/')
+app.wsgi_app = ProxyFix(app.wsgi_app, x_proto=1)
 app.secret_key = 'nOsv22uBT0pA23LYNj3iIaUUMZ4Wv9ga'
 oauth = OAuth(app)
 CORS(app)
@@ -40,7 +42,7 @@ def index():
 
 @app.route('/login')
 def login():
-    redirect_uri = url_for('authorize', _external=True)
+    redirect_uri = url_for('authorize', _external=True, _scheme='http')
     return microsoft.authorize_redirect(redirect_uri)
 
 

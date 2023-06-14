@@ -7,7 +7,7 @@ function App() {
 
   const translateText = async () => {
     try {
-      const res = await axios.post('http://localhost:5000/translate', { text_to_translate: text, lang_to: 'en' });
+      const res = await axios.post('/translate', { text_to_translate: text, lang_to: 'en' });
       setTranslation(res.data.translation);
     } catch (error) {
       console.error(error);
