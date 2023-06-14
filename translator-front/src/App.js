@@ -3,6 +3,9 @@ import axios from 'axios';
 import { Button, Form, Container, Row, Col } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Spinner } from 'react-bootstrap';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify';
 
 const App = () => {
   const [text, setText] = useState('');
@@ -49,6 +52,15 @@ const App = () => {
       setTranslation(res.data.translation);
       setIsLoading(false);
     } catch (error) {
+      if (error.response && error.response.data.error === 'Unsupported file type') {
+        toast.error("Type de fichier non pris en charge. Veuillez télécharger un fichier différent.");
+      }
+      else if (error.response && error.response.data.error === 'Too many characters') {
+        toast.error("Il y a trop de caratères dans le texte. La limite est de 5000 caractères.");
+      }
+      else {
+        toast.error("Une erreur s'est produite lors de la traduction. Veuillez réessayer.");
+      }
       console.error(error);
       setIsLoading(false);
     }
@@ -60,8 +72,8 @@ const App = () => {
 
   return (
     <div>
+      <ToastContainer />
       <Container>
-
         <Row className="justify-content-md-center" style={{ marginBottom: '20px' }}>
           <Col md="auto">
             <h1>{userEmail}</h1>

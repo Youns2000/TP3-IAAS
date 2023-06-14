@@ -2,12 +2,13 @@
 
 ## Description
 
-L'application est une application web basée sur Flask, qui utilise le service Azure Translator Text pour traduire des textes d'une langue à une autre.
+Ce projet contient une application web de traduction basée sur Flask. Il utilise le service Azure Translator Text pour traduire des textes d'une langue à une autre. Les utilisateurs peuvent entrer du texte ou télécharger des fichiers (PDF, TXT, DOCX) pour traduire dans une langue cible spécifiée.
 
 ## Prérequis
 
 - Python 3.7 ou supérieur
 - Un environnement virtuel Python (recommandé)
+- Avoir une adresse e-mail @epita.fr valide pour l'authentification.
 
 ## Installation
 
@@ -35,6 +36,13 @@ source env/bin/activate  # Sur Unix ou MacOS
 
 ```bash
 pip install -r requirements.txt
+```
+
+- Spécifiez que vous travaillez en local:
+  Allez dans le fichier config.py et changez la valeur de la variable LOCAL à True.
+
+```python
+LOCAL = True
 ```
 
 ## Utilisation

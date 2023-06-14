@@ -117,8 +117,18 @@ def translate():
         response = requests.post(
             constructed_url, params=params, headers=headers, json=body)
         response_json = response.json()
+        print(response_json)
 
-        translation = response_json[0]['translations'][0]['text']
+        if 'error' in response_json:
+            error_message = response_json['error']['message']
+            return jsonify({'error': 'Too many characters'}), 400
+        elif response_json and len(response_json) > 0 and 'translations' in response_json[0] and response_json[0]['translations']:
+            translation = response_json[0]['translations'][0]['text']
+        else:
+            translation = None
+            return jsonify({'error': 'Unexpected error occurred'}), 400
+
+        # translation = response_json[0]['translations'][0]['text']
 
         return jsonify({'translation': translation})
     else:
