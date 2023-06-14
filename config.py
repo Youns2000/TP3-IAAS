@@ -4,4 +4,4 @@ CLIENT_SECRET = 'LS48Q~mvcsrAgnJvQ9s7CRNVA1gGjftFc~O4ydsP'
 SUBSCRIPTION_KEY = "e66617687f6f4f6f80fdaf14d97c665b"
 ENDPOINT = "https://api.cognitive.microsofttranslator.com/"
 LOCATION = "westeurope"
-LOCAL = True
+LOCAL = False
