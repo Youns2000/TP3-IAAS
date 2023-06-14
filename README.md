@@ -6,8 +6,8 @@ L'application est une application web basée sur Flask, qui utilise le service A
 
 ## Prérequis
 
-Python 3.7 ou supérieur
-Un environnement virtuel Python (recommandé)
+- Python 3.7 ou supérieur
+- Un environnement virtuel Python (recommandé)
 
 ## Installation
 

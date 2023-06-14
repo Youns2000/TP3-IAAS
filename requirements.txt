@@ -4,7 +4,10 @@ uuid6
 requests
 flask-cors
 flask_mail 
-flask_login 
+flask_login
 flask_sqlalchemy
 werkzeug
 authlib
+pdfminer.six
+python-docx
+python-magic
