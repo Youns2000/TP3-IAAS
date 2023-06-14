@@ -2,3 +2,9 @@ gunicorn
 flask
 uuid6
 requests
+flask-cors
+flask_mail 
+flask_login 
+flask_sqlalchemy
+werkzeug
+authlib
